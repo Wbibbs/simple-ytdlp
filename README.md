@@ -20,7 +20,7 @@
 ```bash
 chmod +x sytdlp.sh
 ```
-3. (Optional) Set the download directory via the ```YTDLP_BASE_DIR``` variable
+3. (Optional) Set the download directory via the ```SYTDLP_BASE_DIR``` variable
 ```bash
 export $YTDLP_BASE_DIR="/my/custom/dir"
 ```
