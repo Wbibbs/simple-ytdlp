@@ -22,7 +22,7 @@ chmod +x sytdlp.sh
 ```
 3. (Optional) Set the download directory via the ```SYTDLP_BASE_DIR``` variable
 ```bash
-export $YTDLP_BASE_DIR="/my/custom/dir"
+export $SYTDLP_BASE_DIR="/my/custom/dir"
 ```
 4. (Optional) Add the script to your ```PATH``` for easy execution from anywhere
 
