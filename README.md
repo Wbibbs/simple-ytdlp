@@ -6,9 +6,9 @@
 ## Features
 
 - Download **video + audio** or **audio only**
-- Automatically organizes downloads by **media type** and **date**.
-- Retry mechanism for content requiring login/cookies.
-- Logs failed downloads to `failed_downloads.log`.
+- Automatically organizes downloads by **media type** and **date**
+- Retry mechanism for content requiring login/cookies
+- Logs failed downloads to `failed_downloads.log`
 
 ---
 
