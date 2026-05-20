@@ -15,6 +15,7 @@ MEDIA_TYPE="video"
 DL_ARGS=( "--merge-output-format" "mp4" "-f" "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" )
 MODE_MSG="Mode: Video + Audio (Container: MP4)"
 DATE_FORMAT="default"
+TIMESTAMP=0
 
 # --- Help function ---
 show_help() {
@@ -31,6 +32,7 @@ Options:
   -h, --help    Show this help message
   -a            Download audio only (MP3)
   -v            Download video (Default)
+  -t            Include timestamp in file name
   -f            Swap date format to YYYY-DD-MM
 
 Example:
@@ -72,6 +74,9 @@ while [[ $# -gt 0 ]]; do
                     f)
                         DATE_FORMAT="alt"
                         ;;
+                    t)
+                        TIMESTAMP=1
+                        ;;
                     *)
                         echo "Warning: Unknown flag '-$flag'"
                         ;;
@@ -108,8 +113,12 @@ run_download() {
     TARGET_DIR="$BASE_DIR/$MEDIA_TYPE/$YEAR/$MONTH_DAY"
     mkdir -p "$TARGET_DIR"
 
-    OUTPUT_TEMPLATE="$TARGET_DIR/%(title)s - %(uploader)s - $OUTPUT_DATE_FORMAT.%(ext)s"
-
+    if [[ "$TIMESTAMP" == 1 ]]; then
+        OUTPUT_TEMPLATE="$TARGET_DIR/%(title)s - %(uploader)s - $OUTPUT_DATE_FORMAT.%(ext)s"
+    else
+        OUTPUT_TEMPLATE="$TARGET_DIR/%(title)s - %(uploader)s.%(ext)s"
+    fi
+    
     echo "---------------------------------------------------"
     echo "Target Directory: $TARGET_DIR"
     echo "$MODE_MSG"
